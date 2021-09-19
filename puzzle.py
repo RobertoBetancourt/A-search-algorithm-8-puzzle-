@@ -199,6 +199,7 @@ def checkPath(path):
     index += 1
   return movements
 
+# Analyze how the blank was moved to obtain the solution moves to solve the puzzle
 def getDirections(movements):
   directions = []
   for index in range(len(movements) - 1):
@@ -215,7 +216,7 @@ def getDirections(movements):
   return directions
 
 def executeAlgorithm():
-  # Create path, open and closed list
+  # Create path, open and closed list as global variables
   global path
   path = []
   global openList
