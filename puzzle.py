@@ -71,7 +71,6 @@ def generateChildren(x, n):
   if emptySpace['row'] != n-1:
     tempBoard = swapDown(x, emptySpace)
     children.append(tempBoard)
-
   return children
 
 # Get coordinates of elements to calculate Manhattan distance
@@ -93,10 +92,6 @@ def getManhattanDistance(current, target):
     h += deltaX + deltaY
   return h
 
-# Function to sort open list by heuristic value
-def getFn(key):
-  return graph[key]['f(n)']
-
 # Recursive function to get all descendants of a given node
 def getDescendants(id, acc):
   for child in graph[id]['children']:
@@ -112,6 +107,10 @@ def deleteNodes(nodes):
       openList.remove(key)
     if key in closedList:
       closedList.remove(key)
+
+# Function to sort open list by heuristic value
+def getFn(key):
+  return graph[key]['f(n)']
 
 def analizeChildren(children, x, n, target):
   for child in children:
